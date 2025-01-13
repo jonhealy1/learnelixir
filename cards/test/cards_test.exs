@@ -2,7 +2,9 @@ defmodule CardsTest do
   use ExUnit.Case
   doctest Cards
 
-  test "greets the world" do
-    assert Cards.hello() == :world
+  test "create_deck/0 creates a deck of 52 cards" do
+    deck = Cards.create_deck()
+    assert length(deck) == 52
   end
+
 end

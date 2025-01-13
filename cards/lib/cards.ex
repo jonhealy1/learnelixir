@@ -18,6 +18,16 @@ defmodule Cards do
     Enum.shuffle(deck)
   end
 
+  @doc """
+  Checks if a card is in the deck.
+  Returns true if the card is in the deck, false otherwise.
+
+  ## Examples
+
+      iex> deck = Cards.create_deck
+      iex> Cards.contains?(deck, "Ace of Hearts")
+      true
+  """
   def contains?(deck, card) do
     Enum.member?(deck, card)
   end
