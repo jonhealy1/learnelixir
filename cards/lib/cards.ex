@@ -19,15 +19,21 @@ defmodule Cards do
     {hand, remaining_deck}
   end
 
-  def create_shuffled_and_deal(n) do
-    deck = create_deck()
-    shuffled_deck = shuffle(deck)
-    {hand, _remaining_deck} = deal(shuffled_deck, n)
-    hand
+  def save_deck(deck, filename) do
+    binary = :erlang.term_to_binary(deck)
+    File.write!(filename, binary)
   end
 
-  def save_deck(deck, filename) do
-    File.write!(filename, deck)
+  def load_deck(filename) do
+    case File.read(filename) do
+      :ok -> :erlang.binary_to_term(binary)
+      :error -> {:error, "File not found"}
+    end
+
+  end
+
+  def create_hand(n) do
+    Cards.create_deck |> Cards.shuffle |> Cards.deal(n)
   end
 
 end
