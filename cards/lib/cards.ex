@@ -1,4 +1,8 @@
 defmodule Cards do
+  @moduledoc """
+  A module for creating and manipulating decks of cards.
+  """
+
   def create_deck do
     values = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"]
     suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
@@ -25,11 +29,11 @@ defmodule Cards do
   end
 
   def load_deck(filename) do
-    case File.read(filename) do
-      :ok -> :erlang.binary_to_term(binary)
-      :error -> {:error, "File not found"}
+    {status, binary} = File.read(filename)
+    case status do
+      :ok -> {:ok, :erlang.binary_to_term(binary)}
+      _ -> {:error, :file_not_found}
     end
-
   end
 
   def create_hand(n) do
