@@ -1,0 +1,4 @@
+%{
+  "egd": {:git, "https://github.com/erlang/egd.git", "1cea959544de7dd40a3284ba571a58939de57616", []},
+  "identicon": {:hex, :identicon, "0.1.0", "f531f2914852166893d882080369c4169f145f7898ffb84a2d8862f52db925e9", [:mix], [], "hexpm", "43c1738cf85b4417b1037d3b87bb0ec83ac2d851da1ffaef0b6b75a8438bfa0c"},
+}
